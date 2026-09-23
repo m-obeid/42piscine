@@ -42,7 +42,7 @@ and remove the original testShell00, leave only testShell00.tar
 
 ### ex02. Oh yeah, mooore…
 
-Similar process to ex01 with the permissions and timestamps, the only exception is that test0 and test2 are directories, a hard link for test6 inside test0, and test6 is a symbolic link pointing to test0. Think of a symbolic link as a shortcut, what is put into test6 goes into test0 and vise versa. A hard link is similar, but differs in how it is stored.
+Similar process to ex01 with the permissions and timestamps, the only exception is that test0 and test2 are directories, a hard link for test5 inside test0 and test3 inside test0 as well, and test6 is a symbolic link pointing to test0. Think of a symbolic link as a shortcut, what is put into test6 goes into test0 and vise versa. A hard link is similar, but differs in how it is stored.
 
 DON'T FORGET TO MAKE THE FILES THE RIGHT SIZE! If you want a 1 byte file you need to do
 ```bash
@@ -59,10 +59,10 @@ To create the symlink:
 ln -s test0 test6
 ```
 
-and to create the hardlink:
+and to create a hardlink:
 
 ```bash
-ln test6 test0/test6
+ln test5 test0/test5
 ```
 
 Please make sure to do it in this order to avoid messing it up:
@@ -93,7 +93,8 @@ printf "XX" > test4
 printf "X" > test5
 
 ln -s test0 test6
-ln test6 test0/test6
+ln test5 test0/test5
+ln test3 test0/test3
 
 # STEP 2: Set timestamps
 touch -d "1 Jun 2026 20:47" test0
