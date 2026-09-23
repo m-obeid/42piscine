@@ -74,7 +74,7 @@ Using ssh-keygen, you can generate SSH keys. These always come with a private an
 ssh-keygen -t ed25519
 ```
 
-Leave the default values for all 3 prompts by just leaving them empty and now your id_ed25519_pub is in ~/.ssh/id_ed25519_pub, copy it to your exercise folder and you’re done.
+Leave the default values for all 3 prompts by just leaving them empty and now your id_ed25519_pub is in ~/.ssh/id_ed25519.pub, copy it to your exercise folder, rename and you’re done.
 
 ### ex04: midLS
 
