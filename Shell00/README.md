@@ -225,7 +225,7 @@ $
 
 -e tells cat to show a $ at every new line
 
-Rename a to b by using mv (used for moving files but that also renames it
+Rename a to b by using mv (used for moving files but that also renames it)
 
 ```bash
 mv a b
