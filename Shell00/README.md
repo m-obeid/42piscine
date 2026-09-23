@@ -126,10 +126,13 @@ This goes into git_ignore.sh
 
 ```bash
 #!/bin/bash
-git check-ignore *
+git ls-files --others --ignored --exclude-standard
 ```
 
-The check-ignore command is defined in the git man page. The * is a wildcard that tells the shell to run this command for every file and folder in the current directory.
+- ls-files lists the files that are in the repository.
+- --others displays files that are not in the git index.
+- --ignored displays the ignored files that were defined in .gitignore.
+- --exclude-standard lists the files deleted by default.
 
 ### ex07: diff
 
@@ -208,3 +211,11 @@ So the final magic file is:
 ```bash
 41	string 42 42 file
 ```
+
+To verify if it works, create a file containing 42 spaces and then follow it up by "42", then run:
+
+```bash
+file -m ft_magic my42file
+```
+
+It should report it as a 42 file. Any other file type should not.
