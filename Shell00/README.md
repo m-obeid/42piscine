@@ -42,7 +42,7 @@ and remove the original testShell00, leave only `testShell00.tar`
 
 ### ex02. Oh yeah, mooore…
 
-Similar process to `ex01` with the permissions and timestamps, the only exception is that `test0` and `test2` are directories, a hard link for `test5` inside `test0` and `test3` inside `test0` as well, and `test6` is a symbolic link pointing to `test0`.
+Similar process to `ex01` with the permissions and timestamps, the only exception is that `test0` and `test2` are directories, `test5` is a hard link to `test3`, and `test6` is a symbolic link pointing to `test0`.
 
 Think of a symbolic link as a shortcut, what is put into test6 goes into test0 and vise versa. A hard link is similar, but differs in how it is stored.
 
@@ -62,10 +62,10 @@ To create the symlink:
 ln -s test0 test6
 ```
 
-and to create a hardlink:
+and to create the hardlink:
 
 ```bash
-ln test5 test0/test5
+ln test5 test3
 ```
 
 Please make sure to do it in this order to avoid messing it up:
@@ -93,11 +93,9 @@ mkdir test2
 printf "XXXX" > test1
 printf "X" > test3
 printf "XX" > test4
-printf "X" > test5
 
 ln -s test0 test6
-ln test5 test0/test5
-ln test3 test0/test3
+ln test3 test5
 
 # STEP 2: Set timestamps
 touch -d "1 Jun 2026 20:47" test0
