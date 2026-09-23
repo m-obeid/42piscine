@@ -42,29 +42,84 @@ and remove the original testShell00, leave only testShell00.tar
 
 ### ex02. Oh yeah, mooore…
 
-Similar process to ex01 with the permissions and timestamps, the only exception is that test0 and test2 are directories, a hard link for test3 and test5 inside test0, and test6 is a symbolic link pointing to test0. Think of a symbolic link as a shortcut, what is put into test6 goes into test0 and vise versa. A hard link is similar, but differs in how it is stored.
+Similar process to ex01 with the permissions and timestamps, the only exception is that test0 and test2 are directories, a hard link for test6 inside test0, and test6 is a symbolic link pointing to test0. Think of a symbolic link as a shortcut, what is put into test6 goes into test0 and vise versa. A hard link is similar, but differs in how it is stored.
 
 DON'T FORGET TO MAKE THE FILES THE RIGHT SIZE! If you want a 1 byte file you need to do
 ```bash
-echo -e "a" > file.name
+printf "a" > file.name
 ```
 
 Replace file.name with your file's name.
 
+To give symlinks a new timestamp you need to add the -h attribute to the touch command
+
 To create the symlink:
 
 ```bash
-ln -s test6 test0
+ln -s test0 test6
 ```
 
-and to create the 2 hardlinks:
+and to create the hardlink:
 
 ```bash
-ln test3 test0/test3
-ln test5 test0/test5
+ln test6 test0/test6
 ```
 
-To give symlinks a new timestamp you need to add the -s attribute to the touch command
+Please make sure to do it in this order to avoid messing it up:
+
+1. Create files, folders, links
+2. Change timestamps
+3. Change permissions
+
+For reference, I also made this shell script that you can use:
+
+```bash
+#!/bin/bash
+
+# This script creates the notoriously tedious exo2.tar file for Shell00
+# because running these commands by hand is hell
+
+# STEP 0: Create sandbox so we don't suck in unintended files
+mkdir exo2
+cd exo2
+
+# STEP 1: Create all files, dirs and links
+mkdir test0
+mkdir test2
+
+printf "XXXX" > test1
+printf "X" > test3
+printf "XX" > test4
+printf "X" > test5
+
+ln -s test0 test6
+ln test6 test0/test6
+
+# STEP 2: Set timestamps
+touch -d "1 Jun 2026 20:47" test0
+touch -d "1 Jun 2026 21:46" test1
+touch -d "1 Jun 2026 22:45" test2
+touch -d "1 Jun 2026 23:44" test3
+touch -d "1 Jun 2026 23:43" test4
+touch -d "1 Jun 2026 23:44" test5
+touch -h -d "1 Jun 2026 22:20" test6
+
+# STEP 3: Set all permissions
+chmod 404 test3
+chmod 404 test5
+chmod 714 test1
+chmod 715 test0
+chmod 504 test2
+chmod 641 test4
+
+# STEP 4: tar it all up
+tar -cf ../exo2.tar *
+
+# STEP 5: Exit sandbox
+cd ..
+```
+
+Remember that you should only upload exo2.tar and nothing else in ex02 otherwise Moulinette will complain.
 
 ### ex03: id_ed25519_pub
 
@@ -74,7 +129,7 @@ Using ssh-keygen, you can generate SSH keys. These always come with a private an
 ssh-keygen -t ed25519
 ```
 
-Leave the default values for all 3 prompts by just leaving them empty and now your id_ed25519_pub is in ~/.ssh/id_ed25519.pub, copy it to your exercise folder, rename and you’re done.
+Leave the default values for all 3 prompts by just leaving them empty and now your id_ed25519_pub is in ~/.ssh/id_ed25519.pub, copy it to your ex03 folder, rename and you’re done.
 
 ### ex04: midLS
 
