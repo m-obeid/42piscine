@@ -175,3 +175,13 @@ cd = '0' + (a) % 10
 And then I was able to output them without issue, I just needed to use `write` constantly and add a space in between `cb` and `cc` and a comma after `cd` if `a != 9999` since that's the final number.
 
 So this way `ft_print_comb2` ended up being just a loop that runs `ft_print_digits` 9999 times while incrementing `a` that's passed to it.
+
+## ex07: `ft_putnbr`
+
+I solved this one through recursion.
+
+Basically when the function is first run, it checks if the number entered is -2147483648 because this is the overflow point for `int`, so it would cause unintended behavior if we try to calculate it. For this special case number we manually do the `write`.
+
+If it is not, then we go on to check if the number is negative, and if it is we need to put a dash so it shows up as negative, then we set `nb = -nb` which basically makes it positive so we can work with it, otherwise the algorithm will fail.
+
+Then if the number only has 1 digit (more or equal to 0 and less than 10) we can easily reuse `ft_putchar` again to output that. Otherwise, we will call `ft_putnbr` again, this time dividing `nb` by 10 so we remove the rightmost digit and do the same procedure on top of it again, and this keeps repeating until we only have one digit we can output using `ft_putchar`. Then after all these recursive operations, it does the same but this time using the `%` operator, which does the opposite of division by 10: it removes the leftmost digit. And this way, both halves are eventually reduced to single characters that can be outputted using `ft_putchar`, leading to our number!
