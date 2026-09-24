@@ -151,3 +151,27 @@ But we are not working with Python, and we are not allowed to use `for` loops as
 - `ft_print_comma`: a function that just prints a comma for seperation.
 
 You can see the code in the C file for it if you're completely helpless but this should be enough info so you can write it yourself, maybe look up syntax for the and/or operators, while loops and if statements in C.
+
+## ex06: `ft_print_comb2`
+
+This one was a bit more difficult than I anticipated. It would be a port of the one in `ex05` if it weren't for the 25 line limit for functions...
+
+But the way I ended up doing it is by using some simple math
+
+Basically I have only one `int` named `a` that grows from 1 all the way to 9999, and then to print it, I made a new `ft_print_digits` that derives `ca`, `cb`, `cc` and `cd` which are the `char` passed to `write` by doing:
+
+```c
+char ca
+char cb
+char cc
+char cd
+
+ca = '0' + (a / 1000) % 10
+cb = '0' + (a / 100) % 10
+cc = '0' + (a / 10) % 10
+cd = '0' + (a) % 10
+```
+
+And then I was able to output them without issue, I just needed to use `write` constantly and add a space in between `cb` and `cc` and a comma after `cd` if `a != 9999` since that's the final number.
+
+So this way `ft_print_comb2` ended up being just a loop that runs `ft_print_digits` 9999 times while incrementing `a` that's passed to it.
