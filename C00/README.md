@@ -105,4 +105,49 @@ This one is also very simple. We can use `if` to compare `n < 0`, if it is, its 
 ## Optional
 
 > [!NOTE]
-> I'm still working on this project, so no info about `ex05`-`ex08` yet
+> I'm still working on this project, so potentionally inaccurate/missing info  about `ex06`-`ex08` and no code
+
+### ex05: `ft_print_comb`
+
+Now this is where it gets trickier, and we need to think before we code.
+
+The task is to print a combination of 3 digits at a time, seperated by a comma, and each of these 3 digits:
+
+- cannot repeat
+- cannot occur in the same group again in the next combination
+
+This is the expected output:
+
+![Output of ft_print_comb visualized](ft_print_comb_nums.png)
+
+I pseudo-coded using Python for loops as it's more readable for me:
+
+```python
+cout = ''
+for a in range(8):
+  for b in range(9):
+    for c in range(10):
+      if not (a == c or a == b or b == c):
+        if not (a == 0 and b == 1 and c == 2):
+          cout += ", "
+        cout += f'{a}{b}{c}'
+print(cout)
+```
+
+Basically how it works is there are 3 loops for each digit, the `a` loop contains the `b` loop which contains the `c` loop
+
+Each loop starts from it's parent's current int or 0 for `a` to stop numbers like 021 to appear since we're raising the floor for it.
+
+This way, `c` loop will run for the `c` digit which runs most of the times. when `c` loop runs out of digits, the `b` loop iterates and so the `c` loop is reset, just like how numbers overflow, aaand finally it cascades to `a` which is the slowest gear. 
+
+Then we just instruct `c` to print `abc` if `a`, `b` and `c` are not equal to each other
+
+The reason I chose 8, 9 and 10 is because Python's `range()` function ends as soon as it sees the number it was given, if I did 7, 8 and 9 it would stop one number too early.
+
+But we are not working with Python, and we are not allowed to use `for` loops as per Norme, so I created:
+
+- `ft_print_digits`: a function which turns 3 `int` digits into their corresponding `char` ASCII representation and then prints them in order and calls `ft_print_comma` if neccesary.
+- `ft_print_comb`: the function that houses our 3 nested `while` loops and `a`, `b` and `c` variables 
+- `ft_print_comma`: a function that just prints a comma for seperation.
+
+You can see the code in the C file for it if you're completely helpless but this should be enough info so you can write it yourself, maybe look up syntax for the and/or operators, while loops and if statements in C.
