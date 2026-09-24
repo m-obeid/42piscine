@@ -125,8 +125,8 @@ I pseudo-coded using Python for loops as it's more readable for me:
 ```python
 cout = ''
 for a in range(8):
-  for b in range(9):
-    for c in range(10):
+  for b in range(a, 9):
+    for c in range(b, 10):
       if not (a == c or a == b or b == c):
         if not (a == 0 and b == 1 and c == 2):
           cout += ", "
