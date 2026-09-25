@@ -104,9 +104,6 @@ This one is also very simple. We can use `if` to compare `n < 0`, if it is, its 
 
 ## Optional
 
-> [!NOTE]
-> I'm still working on this project, so potentionally inaccurate/missing info  about `ex06`-`ex08` and no code
-
 ### ex05: `ft_print_comb`
 
 Now this is where it gets trickier, and we need to think before we code.
@@ -152,7 +149,7 @@ But we are not working with Python, and we are not allowed to use `for` loops as
 
 You can see the code in the C file for it if you're completely helpless but this should be enough info so you can write it yourself, maybe look up syntax for the and/or operators, while loops and if statements in C.
 
-## ex06: `ft_print_comb2`
+### ex06: `ft_print_comb2`
 
 This one was a bit more difficult than I anticipated. It would be a port of the one in `ex05` if it weren't for the 25 line limit for functions...
 
@@ -176,7 +173,7 @@ And then I was able to output them without issue, I just needed to use `write` c
 
 So this way `ft_print_comb2` ended up being just a loop that runs `ft_print_digits` 9999 times while incrementing `a` that's passed to it.
 
-## ex07: `ft_putnbr`
+### ex07: `ft_putnbr`
 
 I solved this one through recursion.
 
@@ -185,3 +182,19 @@ Basically when the function is first run, it checks if the number entered is -21
 If it is not, then we go on to check if the number is negative, and if it is we need to put a dash so it shows up as negative, then we set `nb = -nb` which basically makes it positive so we can work with it, otherwise the algorithm will fail.
 
 Then if the number only has 1 digit (more or equal to 0 and less than 10) we can easily reuse `ft_putchar` again to output that. Otherwise, we will call `ft_putnbr` again, this time dividing `nb` by 10 so we remove the rightmost digit and do the same procedure on top of it again, and this keeps repeating until we only have one digit we can output using `ft_putchar`. Then after all these recursive operations, it does the same but this time using the `%` operator, which does the opposite of division by 10: it removes the leftmost digit. And this way, both halves are eventually reduced to single characters that can be outputted using `ft_putchar`, leading to our number!
+
+### ex08: `ft_print_combn`
+
+The code has a simple exponential function, a function to print digits and a function to print commas, and the `ft_print_combn`
+
+`ft_print_combn` first exponents to the smallest possible number in `n+1` digits, so that's 100 for `n=2` and then subtracts one so it be the largest `n` digits number 99 for `n=2`
+
+Then we have the main counter `int a` that is incremented in our loop and an additional `int o` for offset. Both start at 1.
+
+The comma is printed first if `a` is not in it's first iteration, so this way the final number won't have a trailing comma.
+
+Then the current digits for `a` are printed using `ft_print_digits` and for that `a` and `n` are passed to it so it can properly calculate the amount of digits.
+
+We now check if `a` ends with 9 by using the `%` operator, if a modulo 10 equals 9 then we know this must be a number where we start to skip some. That's where the offset comes in: offset is incremented and then appended to `a`.  So `a` ends up as `a+o+1` in that iteration. For the first iteration, `o` becomes 2 before being added to `a`, so we shift from eg. 09 all the way to 12, which is not repeating unlike 10 or 11. Same block model we saw with `ft_print_comb` essentially.
+
+And this cycle repeats, with `o` increasing every time the modulo exception occurs, until we reach 89 because when 89 is hit, `o` is large enough to skip 90-99.
