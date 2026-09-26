@@ -12,65 +12,78 @@
 
 #include <unistd.h>
 
-void	ft_print_comma(void)
-{
-	write(1, ", ", 2);
-}
-
-int	ft_exp(int big, int lit)
-{
-	int	res;
-	int	i;
-
-	res = 1;
-	i = 0;
-	while (i < lit)
-	{
-		res *= big;
-		i++;
-	}
-	return (res);
-}
-
 void	ft_print_digits(int a, int nc)
 {
 	char	c;
-	int		exp;
 
-	exp = ft_exp(10, nc - 1);
-	while (exp >= 1)
+	if (nc > 1)
+		ft_print_digits(a / 10, nc - 1);
+	c = '0' + (a % 10);
+	write(1, &c, 1);
+}
+
+int	ft_isasc(int a, int n)
+{
+	int	prev;
+	int	cur;
+
+	prev = 10;
+	while (n > 0)
 	{
-		c = '0' + (a / exp) % 10;
-		write(1, &c, 1);
-		exp /= 10;
+		cur = a % 10;
+		if (cur >= prev)
+			return (0);
+		prev = cur;
+		a /= 10;
+		n--;
 	}
+	return (1);
+}
+
+int	ft_max(int n)
+{
+	int	max;
+	int	i;
+
+	max = 0;
+	i = 10 - n;
+	while (i <= 9)
+	{
+		max = (max * 10) + i;
+		i++;
+	}
+	return (max);
 }
 
 void	ft_print_combn(int n)
 {
 	int	max;
 	int	a;
-	int	o;
+	int	i;
 
-	max = ft_exp(10, n) - 1;
-	a = 1;
-	o = 1;
+	max = ft_max(n);
+	a = 0;
+	i = 0;
+	while (i < n)
+	{
+		a = a * 10 + i;
+		i++;
+	}
+	ft_print_digits(a, n);
+	a++;
 	while (a <= max)
 	{
-		if (a != 1)
-			ft_print_comma();
-		ft_print_digits(a, n);
-		if (a % 10 == 9)
+		if (ft_isasc(a, n) == 1)
 		{
-			o++;
-			a += o;
+			write(1, ", ", 2);
+			ft_print_digits(a, n);
 		}
 		a++;
 	}
 }
 
-/* int	main(void)
+int	main(void)
 {
 	ft_print_combn(2);
 	return (0);
-} */
+}

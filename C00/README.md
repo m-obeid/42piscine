@@ -42,7 +42,7 @@ This might seem strange at first, but you'll get used to it after some time.
 
 Since the function type is `void`, it doesn't actually `return` anything, which is fine.
 
-Now finally to test if your code actually works, you should have a `main` function, this function of type `int` always runs first whenever a C program is ran. The reason it's of type `int` is because per POSIX, a program always returns an integer value that tells the shell or other programs whether the program encountered an error. 
+Now finally to test if your code actually works, you should have a `main` function, this function of type `int` always runs first whenever a C program is ran. The reason it's of type `int` is because per POSIX, a program always returns an integer value that tells the shell or other programs whether the program encountered an error.
 
 So make sure to `return (0);` which means success. The brackets are there to please `norminette`.
 
@@ -135,7 +135,7 @@ Basically how it works is there are 3 loops for each digit, the `a` loop contain
 
 Each loop starts from it's parent's current int or 0 for `a` to stop numbers like 021 to appear since we're raising the floor for it.
 
-This way, `c` loop will run for the `c` digit which runs most of the times. when `c` loop runs out of digits, the `b` loop iterates and so the `c` loop is reset, just like how numbers overflow, aaand finally it cascades to `a` which is the slowest gear. 
+This way, `c` loop will run for the `c` digit which runs most of the times. when `c` loop runs out of digits, the `b` loop iterates and so the `c` loop is reset, just like how numbers overflow, aaand finally it cascades to `a` which is the slowest gear.
 
 Then we just instruct `c` to print `abc` if `a`, `b` and `c` are not equal to each other
 
@@ -144,7 +144,7 @@ The reason I chose 8, 9 and 10 is because Python's `range()` function ends as so
 But we are not working with Python, and we are not allowed to use `for` loops as per Norme, so I created:
 
 - `ft_print_digits`: a function which turns 3 `int` digits into their corresponding `char` ASCII representation and then prints them in order and calls `ft_print_comma` if neccesary.
-- `ft_print_comb`: the function that houses our 3 nested `while` loops and `a`, `b` and `c` variables 
+- `ft_print_comb`: the function that houses our 3 nested `while` loops and `a`, `b` and `c` variables
 - `ft_print_comma`: a function that just prints a comma for seperation.
 
 You can see the code in the C file for it if you're completely helpless but this should be enough info so you can write it yourself, maybe look up syntax for the and/or operators, while loops and if statements in C.
@@ -155,7 +155,7 @@ This one was a bit more difficult than I anticipated. It would be a port of the 
 
 But the way I ended up doing it is by using some simple math
 
-Basically I have only one `int` named `a` that grows from 1 all the way to 9999, and then to print it, I made a new `ft_print_digits` that derives `ca`, `cb`, `cc` and `cd` which are the `char` passed to `write` by doing:
+Basically I have only one `int` named `a` that grows from 1 all the way to 9899 (because that's the largest number where the first half is lower than the second half), and then to print it, I made a new `ft_print_digits` that derives `ca`, `cb`, `cc` and `cd` which are the `char` passed to `write` by doing:
 
 ```c
 char ca
@@ -169,9 +169,9 @@ cc = '0' + (a / 10) % 10
 cd = '0' + (a) % 10
 ```
 
-And then I was able to output them without issue, I just needed to use `write` constantly and add a space in between `cb` and `cc` and a comma after `cd` if `a != 9999` since that's the final number.
+And then I was able to output them without issue, I just needed to use `write` constantly and add a space in between `cb` and `cc` and a comma after `cd` if `a < 9899` since that's the final number.
 
-So this way `ft_print_comb2` ended up being just a loop that runs `ft_print_digits` 9999 times while incrementing `a` that's passed to it.
+Then all my loop does is it gets the left half of `a` by dividing it by 100 and the right half using `a` modulo 100, checks if left is smaller than right before printing it because left cannot be larger than right, and that's it.
 
 ### ex07: `ft_putnbr`
 
@@ -185,16 +185,14 @@ Then if the number only has 1 digit (more or equal to 0 and less than 10) we can
 
 ### ex08: `ft_print_combn`
 
-The code has a simple exponential function, a function to print digits and a function to print commas, and the `ft_print_combn`
+The code is probably the most complicated, it consists of a recursive function to print digits (`ft_print_digits`), a validation function (`ft_isasc`), a helper to calculate the maximum boundary (`ft_max`), and the main `ft_print_combn`.
 
-`ft_print_combn` first exponents to the smallest possible number in `n+1` digits, so that's 100 for `n=2` and then subtracts one so it be the largest `n` digits number 99 for `n=2`
+`ft_print_combn` first uses `ft_max` to dynamically build the exact maximum valid combination for `n`. For example, if `n=3`, it calculates `10-3` to start at `7` and loops up to `9`, building the integer `789`.
 
-Then we have the main counter `int a` that is incremented in our loop and an additional `int o` for offset. Both start at 1.
+Then we calculate the exact starting number `a` based on `n` by looping from `0` to `n-1` (for `n=3`, it builds the integer `12`, representing `012`). The first valid number is printed immediately using `ft_print_digits` so we don't have to worry about a leading comma on the first iteration.
 
-The comma is printed first if `a` is not in it's first iteration, so this way the final number won't have a trailing comma.
+After printing the first number, we enter a `while` loop that increments `a` by 1 (`a++`) until it reaches our calculated maximum number.
 
-Then the current digits for `a` are printed using `ft_print_digits` and for that `a` and `n` are passed to it so it can properly calculate the amount of digits.
+Instead of trying to mathematically calculate jumps to skip invalid numbers, we pass `a` and `n` to `ft_isasc`. This function extracts the digits from right to left using the `%` operator and checks if every digit is strictly smaller than the one to its right. If the number is not strictly ascending (like 10) or repeats digits (like 11), `ft_isasc` returns 0 and the loop skips it.
 
-We now check if `a` ends with 9 by using the `%` operator, if a modulo 10 equals 9 then we know this must be a number where we start to skip some. That's where the offset comes in: offset is incremented and then appended to `a`.  So `a` ends up as `a+o+1` in that iteration. For the first iteration, `o` becomes 2 before being added to `a`, so we shift from eg. 09 all the way to 12, which is not repeating unlike 10 or 11. Same block model we saw with `ft_print_comb` essentially.
-
-And this cycle repeats, with `o` increasing every time the modulo exception occurs, until we reach 89 because when 89 is hit, `o` is large enough to skip 90-99.
+If `ft_isasc` returns 1, we print a comma directly using `write` and then the valid digits using `ft_print_digits`. This cycle repeats until `a` hits our exact maximum bound.

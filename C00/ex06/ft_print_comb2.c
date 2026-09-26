@@ -33,7 +33,7 @@ void	ft_print_digits(int a)
 	write(1, " ", 1);
 	write(1, &cc, 1);
 	write(1, &cd, 1);
-	if (a != 9999)
+	if (a < 9899)
 	{
 		ft_print_comma();
 	}
@@ -42,17 +42,24 @@ void	ft_print_digits(int a)
 void	ft_print_comb2(void)
 {
 	int	a;
+	int	left;
+	int	right;
 
 	a = 1;
-	while (a <= 9999)
+	while (a <= 9899)
 	{
-		ft_print_digits(a);
+		left = a / 100;
+		right = a % 100;
+		if (left < right)
+		{
+			ft_print_digits(a);
+		}
 		a++;
 	}
 }
 
-/* int	main(void)
+int	main(void)
 {
 	ft_print_comb2();
 	return (0);
-} */
+}
