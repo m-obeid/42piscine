@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:28:34 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/24 20:24:31 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/28 10:30:26 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	ft_print_comb2(void)
 	}
 }
 
-int	main(void)
+/* int	main(void)
 {
 	ft_print_comb2();
 	return (0);
-}
+} */

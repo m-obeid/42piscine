@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 20:27:43 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/24 21:53:50 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/28 10:30:13 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_putnbr(int nb)
 	}
 }
 
-int	main(void)
+/* int	main(void)
 {
 	ft_putnbr(-5);
 	return (0);
-}
+} */
