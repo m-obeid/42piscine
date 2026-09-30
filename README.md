@@ -13,7 +13,7 @@ Note Shell01 doesn't pass I'm not going to bother with that for now
 | **[Shell00](Shell00)** | complete              | 100/100 |
 | **[Shell01](Shell01)** | failed                | 0/100   |
 | **[C00](C00)**         | complete              | 100/100 |
-| **[C01](C01)**         | waiting on evaluation | 0/100   |
+| **[C01](C01)**         | waiting on evaluation | 10/100  |
 | **[C02](C02)**         | waiting on evaluation | 0/100   |
 ## Exam and Rush results
 
