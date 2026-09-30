@@ -6,18 +6,18 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 14:18:06 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/29 16:25:16 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 15:16:37 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putbyte16(unsigned char byte, int i, int maxsize)
+void	ft_putbyte16(unsigned char byte, int i, unsigned int maxsize)
 {
 	char	*digits;
 
 	digits = "0123456789abcdef";
-	if (i < maxsize)
+	if ((unsigned int)i < maxsize)
 	{
 		write(1, &digits[byte / 16], 1);
 		write(1, &digits[byte % 16], 1);
@@ -55,7 +55,7 @@ void	ft_putchar(char c)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned char	*ptr;
-	int				g;	
+	unsigned int	g;	
 	int				i;
 
 	g = 0;
@@ -63,7 +63,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	while (g < size)
 	{
 		ft_putaddr16((unsigned long long)ptr);
-		i = -1;
+		i = 0;
 		while (i < 16)
 		{
 			ft_putbyte16(ptr[i], i, size - g);
@@ -72,7 +72,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 			i += 2;
 		}
 		i = -1;
-		while (++i < 16 && i < size - g)
+		while (++i < 16 && (unsigned int)i < size - g)
 			ft_putchar(ptr[i]);
 		write(1, "\n", 1);
 		g += 16;
@@ -81,11 +81,11 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	return (addr);
 }
 
-/* int	main(int argc, char const *argv[])
+/* int	main(void)
 {
 	char	*test;
 
 	test = "Hello World!";
-	ft_print_memory(test, 64);
+	ft_print_memory(test, 60);
 	return (0);
 } */

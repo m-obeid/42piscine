@@ -6,13 +6,13 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 10:54:02 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/29 11:35:21 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 15:09:52 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (src[i] != '\0' && i < n)

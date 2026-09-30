@@ -5,7 +5,7 @@
 Create a pointer `*ptr` and set it to `dest` so we have a backup of it's original state since we need to `return` it, then walk through until we hit null terminator, setting `*dest` to `*src` and incrementing the pointers with every iteration.
 ### ex01: `ft_strncpy`
 
-Similar to `ft_strcpy` except we also check if `i` is lower than `n` because if it is, the rest has to be filled with `\0`.
+Similar to `ft_strcpy` except we also check if `i` is lower than `n` because if it is, the rest has to be filled with `\0`. Remember to make `i` an `unsigned int` or it won't compile.
 ### ex02: `ft_str_is_alpha`
 
 Walk through the `*str` pointer and doing a check if the `char` we are currently on is outside the ranges of either A-Z or a-z.
@@ -40,7 +40,7 @@ If neither checks earlier fired up, that can only mean that we need to check if 
 Finally return the `str`.
 ### ex10: `ft_strlcpy`
 
-`strlcpy` ensures that at least one byte is reserved for `\0` so the string is guranteed to end, if there's too much headroom, unlike `strncpy` it leaves them and does not overwrite the remaining with `\0`;
+`strlcpy` ensures that at least one byte is reserved for `\0` so the string is guranteed to end, if there's too much headroom, unlike `strncpy` it leaves them and does not overwrite the remaining with `\0`; Remember to make `i` an `unsigned int` or it won't compile.
 ### ex11: `ft_putstr_non_printable`
 
 For this, I had to port `ft_putnbr` from an earlier project to base 16 which is hexadecimal. So instead of diving/modulo by 10, we do 16. And of course we need to map those numbers to the actual hexadecimal digits, which I just did by having a string with all of them listed
@@ -70,10 +70,12 @@ So then `ft_print_memory` receives a `void *` named `addr` and the `unsigned int
 
 A `void` pointer means any data can be passed, but that also means we should cast it to `unsigned char *` stored in a pointer I called `*ptr` so we can work with it bit for bit. If we try to use it directly, code won't compile :(
 
-Then we also define two `int`s used for incrementing and keeping track of our progress:
+Then we also define two `int`s one `unsigned` and the other not used for incrementing and keeping track of our progress:
 
 - `i` which as mentioned in the explanation for my `ft_putbyte16` is the progress in the current 16 byte chunk used to render the line. I'll call these "group" from now on.
-- `g` which stands for group, it tracks the progress throughout the whole thing. It get's incremented by 16 for every group processed.
+- `g` which is `unsigned int` which stands for group, it tracks the progress throughout the whole thing. It get's incremented by 16 for every group processed.
+
+The reason `i` is not `unsigned int` is because later in the logic we set `i` to -1, and `unsigned` does not allow going below 0. That means however whenever we do comparisons with an `unsigned int`, we have to cast `i` to `unsigned int` as long as `i` is not negative
 
 We initialize `g` with 0, then while `g < size`, we use `ft_putaddr16` to print the address of `addr` which equals to just `ptr`, except we have to cast it to `unsigned long long` to get rid of a warning about unsupported conversions preventing our code from compiling. 
 
@@ -83,15 +85,17 @@ The loop ends with a trailing space which is perfect cuz that's what we need for
 
 To start that we set `i` to -1. Why -1?
 
-Because we need to save lines of code to fit the rest of the logic, I decided to make use of the fact that `++i` increments `i` and returns the incremented value as well (`i++` returns the value before incrementing), which means we can do the increment right in the `while` condition, saving us one line, and we check if `i` is less than `size - g` because if it's larger then it isn't in an allowed range, which we handed with padding in `ft_putbyte16`, then we just call `ft_putchar` with `ptr[i]` as the `c` inside the `while` loop to print. If `i` started at 0, the loop would skip the first byte which has index 0. 
+Because we need to save lines of code to fit the rest of the logic, I decided to make use of the fact that `++i` increments `i` and returns the incremented value as well (`i++` returns the value before incrementing), which means we can do the increment right in the `while` condition, saving us one line, and we check if `i` (casted to `unsigned int` because we're comparing with another `unsigned int`) is less than `size - (unsigned int)g` (`g` is also regular int so we need casting) because if it's larger then it isn't in an allowed range, which we handed with padding in `ft_putbyte16`, then we just call `ft_putchar` with `ptr[i]` as the `c` inside the `while` loop to print. If `i` started at 0, the loop would skip the first byte which has index 0. 
 
 Here's how that looks:
 
 ```c
 i = -1;
-while (++i < 16 && i < size - g)
+while (++i < 16 && (unsigned)i < size - (unsigned int)g)
 	ft_putchar(ptr[i]);
 ```
+
+`i` starts negative here, but as soon as `++i` is run, it jumps to 0, making it a valid `unsigned int` once casted.
 
 Top it off with a newline, increment `g` and `ptr` to 16 so we can get the next data in the next line.
 
