@@ -1,5 +1,4 @@
 # C Piscine C01
-## Required (all)
 
 ### ex00. `ft_ft`
 
