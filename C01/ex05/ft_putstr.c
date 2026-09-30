@@ -6,9 +6,11 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:19:09 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/30 13:52:19 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 17:55:44 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {

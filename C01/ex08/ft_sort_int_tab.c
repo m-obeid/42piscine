@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:28:34 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/30 13:55:47 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 17:59:28 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	int	tmp;
 
 	i = 0;
-	while (i < size / 2)
+	while (i < size)
 	{
 		j = 0;
 		while (j < size - i - 1)
@@ -34,7 +34,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	}
 }
 
-/* int main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
 	int	digits[] = { 4, 2, 9, 8, 7, 6 };
 	int	i;
@@ -47,4 +47,4 @@ void	ft_sort_int_tab(int *tab, int size)
 		i++;
 	}
 	return 0;
-} */
+}
