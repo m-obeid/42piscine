@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:19:09 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/28 17:23:47 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 12:09:37 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ void	ft_putstr(char *str)
 	ft_putstr("Hello, World!");
 	return 0;
 } */
-

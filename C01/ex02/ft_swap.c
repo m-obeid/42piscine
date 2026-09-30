@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:02:22 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/28 17:06:46 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 12:10:28 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_swap(int *a, int *b)
 
 	aval = *a;
 	bval = *b;
-
 	*a = bval;
 	*b = aval;
 }

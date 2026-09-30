@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:48 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/28 17:18:27 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 12:10:43 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_ultimate_div_mod(int *a, int *b)
 
 	div = *a / *b;
 	mod = *a % *b;
-
 	*a = div;
 	*b = mod;
 }
