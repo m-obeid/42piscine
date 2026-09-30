@@ -6,11 +6,9 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:28:34 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/28 17:53:28 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/09/30 13:55:47 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 void	ft_sort_int_tab(int *tab, int size)
 {
