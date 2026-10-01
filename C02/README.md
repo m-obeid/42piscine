@@ -99,7 +99,7 @@ Here's how that looks:
 
 ```c
 i = -1;
-while (++i < 16 && (unsigned)i < size - (unsigned int)g)
+while (++i < 16 && (unsigned int)i < size - (unsigned int)g)
 	ft_putchar(ptr[i]);
 ```
 
