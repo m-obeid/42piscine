@@ -34,7 +34,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	}
 }
 
-int main(int argc, char const *argv[])
+/* int main(int argc, char const *argv[])
 {
 	int	digits[] = { 4, 2, 9, 8, 7, 6 };
 	int	i;
@@ -47,4 +47,4 @@ int main(int argc, char const *argv[])
 		i++;
 	}
 	return 0;
-}
+} */
