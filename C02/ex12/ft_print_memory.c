@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 14:18:06 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/30 15:16:37 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/01 18:38:38 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		while (i < 16)
 		{
 			ft_putbyte16(ptr[i], i, size - g);
-			ft_putbyte16(ptr[i + 1], i, size - g);
+			ft_putbyte16(ptr[i + 1], i + 1, size - g);
 			write(1, " ", 1);
 			i += 2;
 		}
@@ -86,6 +86,6 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	char	*test;
 
 	test = "Hello World!";
-	ft_print_memory(test, 60);
+	ft_print_memory(test, 13);
 	return (0);
 } */
