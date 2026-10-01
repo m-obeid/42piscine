@@ -6,17 +6,20 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:35:15 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/29 12:47:01 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/01 16:19:05 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
-	while (*str != '\0')
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (*str >= 'A' && *str <= 'Z')
-			*str += 32;
-		str++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
 	}
 	return (str);
 }

@@ -24,9 +24,13 @@ Walk through the `*str` pointer and doing a check if the `char` we are currently
 ### ex07: `ft_strupcase`
 
 Walk through the `*str` pointer and doing a check if the `char` we are currently on is outside the range of a-z, if it is, subtract the `char` by 32 to jump to the uppercase equivalent.
+
+Do not do this by incrementing the pointer, use index integer because otherwise Moulinette wil complain since the pointer is not at the start of the when returning it.
 ### ex08: `ft_strlowcase`
 
 Walk through the `*str` pointer and doing a check if the `char` we are currently on is outside the range of A-Z, if it is, increment the `char` by 32 to jump to the lowercase equivalent.
+
+Do not do this by incrementing the pointer, use index integer because otherwise Moulinette wil complain since the pointer is not at the start of the string when returning it.
 ### ex09: `ft_strcapitalize`
 
 I made a function `ft_isalnum` to check if a `char` is alphanumeric, so if it matches the ranges of either A-Z, a-z or 0-9, returning 1 if true, otherwise 0.
@@ -35,12 +39,14 @@ Then the `ft_strcapitalize` function walks through the `*str` pointer using `i` 
 
 If it is the first character we only check if the current character is in the range of a-z, as the previous character doesn't exist, then if that's the case also subtract the `char` by 32.
 
-If neither checks earlier fired up, that can only mean that we need to check if the `char` is in the range of A-Z and if it is, increment it by 32 to get it's lowercase equivalent.
+If neither checks earlier fired up, that can only mean that we need to check if this isn't first `char` because first `char` should always stay uppercased and the `char` is in the range of A-Z and if it is, increment it by 32 to get it's lowercase equivalent. 
 
 Finally return the `str`.
 ### ex10: `ft_strlcpy`
 
 `strlcpy` ensures that at least one byte is reserved for `\0` so the string is guranteed to end, if there's too much headroom, unlike `strncpy` it leaves them and does not overwrite the remaining with `\0`; Remember to make `i` an `unsigned int` or it won't compile.
+
+Do not walk the string by incrementing the pointer, use index integer because otherwise Moulinette wil complain since the pointer is not at the start of the string when returning it.
 ### ex11: `ft_putstr_non_printable`
 
 For this, I had to port `ft_putnbr` from an earlier project to base 16 which is hexadecimal. So instead of diving/modulo by 10, we do 16. And of course we need to map those numbers to the actual hexadecimal digits, which I just did by having a string with all of them listed
@@ -50,6 +56,8 @@ digits = "0123456789abcdef"
 ```
 
 Now the function just walks through the `*str` pointer, and when it hits a `char` that is lower than 31, as stated in `ft_str_is_printable`, it runs my function `ft_putnpchar` which writes the `char` in hexadecimal. To avoid errors, `c` is casted (basically converted) to an `unsigned char` stored in `uc`. `unsigned` means that it cannot go negative. If you don't do that, some non-printable characters will break the output.
+
+Do not walk the string by incrementing the pointer, use index integer because otherwise Moulinette wil complain since the pointer is not at the start of the string when returning it.
 
 ```c
 uc = (unsigned char)c;

@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 13:40:13 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/29 16:23:33 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/01 16:20:08 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ void	ft_putnpchar(char c)
 
 void	ft_putstr_non_printable(char *str)
 {
-	while (*str != '\0')
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (*str <= 31)
-			ft_putnpchar(*str);
+		if (str[i] <= 31)
+			ft_putnpchar(str[i]);
 		else
 			write(1, str, 1);
-		str++;
+		i++;
 	}
 }
 

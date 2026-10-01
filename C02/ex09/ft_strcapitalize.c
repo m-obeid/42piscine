@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:35:15 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/29 13:07:53 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/01 16:17:16 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strcapitalize(char *str)
 			str[i] -= 32;
 		else if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
 			str[i] -= 32;
-		else if (str[i] >= 'A' && str[i] <= 'Z')
+		else if (i != 0 && str[i] >= 'A' && str[i] <= 'Z')
 			str[i] += 32;
 		i++;
 	}
