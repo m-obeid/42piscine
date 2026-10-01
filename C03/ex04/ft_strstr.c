@@ -6,9 +6,11 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 11:01:41 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/01 12:32:02 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/01 18:34:07 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 unsigned int	ft_strlen(char	*str)
 {
@@ -22,8 +24,7 @@ unsigned int	ft_strlen(char	*str)
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	len;
-	int	i;
+	unsigned int	len;
 
 	len = 0;
 	while (*str != '\0' && *to_find != '\0')
