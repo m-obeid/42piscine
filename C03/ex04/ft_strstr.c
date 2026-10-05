@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 11:01:41 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/05 10:52:18 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/05 18:14:46 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ char	*ft_strstr(char *str, char *to_find)
 	unsigned int	len;
 
 	len = 0;
-	while (*str != '\0' && *to_find != '\0')
+	if (*to_find == '\0')
+		return (*str);
+	while (*str != '\0')
 	{
 		if (to_find[len] == *str)
 			len++;
