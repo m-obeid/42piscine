@@ -16,6 +16,7 @@ Note Shell01 doesn't pass I'm not going to bother with that for now
 | **[C01](C01)**         | complete              | 100/100 |
 | **[C02](C02)**         | waiting on evaluation | 35/100  |
 | **[C03](C03)**         | waiting on evaluation | 50/100  |
+| **[C04](C04)**         | waiting on evaluation | ?/100   |
 ## Exam and Rush results
 
 Exam and Rush solutions are not included here.
