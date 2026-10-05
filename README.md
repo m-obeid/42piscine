@@ -21,9 +21,10 @@ Note Shell01 doesn't pass I'm not going to bother with that for now
 
 Exam and Rush solutions are not included here.
 
-| Project    | Status                 | Grade  |
-| ---------- | ---------------------- | ------ |
-| **Exam00** | complete               | 70/100 |
-| **Rush00** | skipped                | 0/100  |
-| **Rush01** | waiting for evaluation | ?/100  |
+| Project    | Status                 | Grade   |
+| ---------- | ---------------------- | ------- |
+| **Exam00** | complete               | 70/100  |
+| **Exam01** | complete               | 100/100 |
+| **Rush00** | skipped                | 0/100   |
+| **Rush01** | waiting for evaluation | ?/100   |
 
