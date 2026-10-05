@@ -6,11 +6,9 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 11:01:41 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/01 18:34:07 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/05 10:52:18 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 unsigned int	ft_strlen(char	*str)
 {
