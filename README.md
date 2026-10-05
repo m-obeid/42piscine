@@ -19,7 +19,8 @@ Note Shell01 doesn't pass I'm not going to bother with that for now
 | **[C04](C04)**         | waiting on evaluation | ?/100   |
 ## Exam and Rush results
 
-Exam and Rush solutions are not included here.
+Exam solutions are not included here.
+Rush will be considered later.
 
 | Project    | Status                 | Grade   |
 | ---------- | ---------------------- | ------- |
