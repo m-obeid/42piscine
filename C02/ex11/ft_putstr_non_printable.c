@@ -38,7 +38,7 @@ void	ft_putstr_non_printable(char *str)
 		if (str[i] <= 31)
 			ft_putnpchar(str[i]);
 		else
-			write(1, str, 1);
+			write(1, &str[i], 1);
 		i++;
 	}
 }
