@@ -23,10 +23,10 @@ Note Shell01 doesn't pass I'm not going to bother with that for now
 Exam solutions are not included here.
 Rush will be considered later.
 
-| Project    | Status   | Grade   |
-| ---------- | -------- | ------- |
-| **Exam00** | complete | 70/100  |
-| **Exam01** | complete | 100/100 |
-| **Rush00** | skipped  | 0/100   |
-| **Rush01** | complete | 100/100 |
+| Project              | Status   | Grade   |
+| -------------------- | -------- | ------- |
+| **Exam00**           | complete | 70/100  |
+| **Exam01**           | complete | 100/100 |
+| **Rush00**           | skipped  | 0/100   |
+| **[Rush01](Rush01)** | complete | 100/100 |
 
