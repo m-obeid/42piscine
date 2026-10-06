@@ -1,3 +1,4 @@
+# C Piscine C06
 ### ex00: `ft_print_program_name`
 
 To get the program's parameters, the `main` function always receives 2 arguments in the following order:
