@@ -65,7 +65,7 @@ void	ft_putnbr_base(int nb, char *base)
 	}
 	if (nbr >= 0 && nbr < baselen)
 	{
-		ft_putchar(base[nb]);
+		ft_putchar(base[nbr]);
 	}
 	else
 	{
