@@ -17,11 +17,12 @@ Note Shell01 doesn't pass I'm not going to bother with that for now
 | **[C02](C02)**         | waiting on evaluation | 55/100  |
 | **[C03](C03)**         | waiting on evaluation | 50/100  |
 | **[C04](C04)**         | waiting on evaluation | 70/100  |
+| **[C05](C05)**         | waiting on evaluation | ?/100   |
 | **[C06](C06)**         | waiting on evaluation | ?/100   |
+| **[C07](C07)**         | unfinished            | ?/100   |
 ## Exam and Rush results
 
 Exam solutions are not included here.
-Rush will be considered later.
 
 | Project              | Status   | Grade   |
 | -------------------- | -------- | ------- |
