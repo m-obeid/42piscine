@@ -20,7 +20,7 @@ Walk through the `*str` pointer and doing a check if the `char` we are currently
 Walk through the `*str` pointer and doing a check if the `char` we are currently on is outside the range of A-Z.
 ### ex06: `ft_str_is_printable`
 
-Walk through the `*str` pointer and doing a check if the `char` we are currently on has its ASCII representation being 31 or lower, as in ASCII 0-31 are the non-printable characters.
+Walk through the `*str` pointer and doing a check if the `char` we are currently on has its ASCII representation being 31 or lower or 127, as in ASCII 0-31 and 127 are the non-printable characters.
 ### ex07: `ft_strupcase`
 
 Walk through the `*str` pointer and doing a check if the `char` we are currently on is outside the range of a-z, if it is, subtract the `char` by 32 to jump to the uppercase equivalent.
@@ -55,7 +55,7 @@ For this, I had to port `ft_putnbr` from an earlier project to base 16 which is 
 digits = "0123456789abcdef"
 ```
 
-Now the function just walks through the `*str` pointer, and when it hits a `char` that is lower than 31, as stated in `ft_str_is_printable`, it runs my function `ft_putnpchar` which writes the `char` in hexadecimal. To avoid errors, `c` is casted (basically converted) to an `unsigned char` stored in `uc`. `unsigned` means that it cannot go negative. If you don't do that, some non-printable characters will break the output.
+Now the function just walks through the `*str` pointer, and when it hits a `char` that is lower than 31 or equals 127, as stated in `ft_str_is_printable`, it runs my function `ft_putnpchar` which writes the `char` in hexadecimal. To avoid errors, `c` is casted (basically converted) to an `unsigned char` stored in `uc`. `unsigned` means that it cannot go negative. If you don't do that, some non-printable characters will break the output.
 
 Do not walk the string by incrementing the pointer, use index integer because otherwise Moulinette wil complain since the pointer is not at the start of the string when returning it.
 

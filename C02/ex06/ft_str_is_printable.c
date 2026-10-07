@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:14:57 by mobeid            #+#    #+#             */
-/*   Updated: 2026/09/29 12:32:38 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/07 11:59:38 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_str_is_printable(char *str)
 {
 	while (*str != '\0')
 	{
-		if (*str <= 31)
+		if (*str <= 31 || *str == 127)
 			return (0);
 		str++;
 	}

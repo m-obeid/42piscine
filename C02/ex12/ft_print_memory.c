@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 14:18:06 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/01 18:38:38 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/07 11:59:06 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_putaddr16(unsigned long long addr)
 
 void	ft_putchar(char c)
 {
-	if (c <= 31)
+	if (c <= 31 || c == 127)
 		write(1, ".", 1);
 	else
 		write(1, &c, 1);

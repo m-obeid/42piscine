@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 13:40:13 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/01 16:20:08 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/07 11:59:44 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] <= 31)
+		if (str[i] <= 31 || str[i] == 127)
 			ft_putnpchar(str[i]);
 		else
 			write(1, &str[i], 1);
