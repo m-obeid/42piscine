@@ -12,15 +12,15 @@
 
 #include <unistd.h>
 
-void	ft_putbyte16(unsigned char byte, int i, unsigned int maxsize)
+void	ft_putbyte16(unsigned char *ptr, int i, unsigned int maxsize)
 {
 	char	*digits;
 
 	digits = "0123456789abcdef";
 	if ((unsigned int)i < maxsize)
 	{
-		write(1, &digits[byte / 16], 1);
-		write(1, &digits[byte % 16], 1);
+		write(1, &digits[ptr[i] / 16], 1);
+		write(1, &digits[ptr[i] % 16], 1);
 	}
 	else
 		write(1, "  ", 2);
@@ -66,8 +66,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		i = 0;
 		while (i < 16)
 		{
-			ft_putbyte16(ptr[i], i, size - g);
-			ft_putbyte16(ptr[i + 1], i + 1, size - g);
+			ft_putbyte16(ptr, i, size - g);
+			ft_putbyte16(ptr, i + 1, size - g);
 			write(1, " ", 1);
 			i += 2;
 		}
