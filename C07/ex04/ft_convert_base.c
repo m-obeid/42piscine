@@ -58,7 +58,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	return (dest);
 }
 
-
 void	ft_nbr_base_str(int nbr, char *base, char *str)
 {
 	int	baselen;
