@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 14:21:11 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/08 12:26:01 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/08 16:43:03 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb <= 1)
 		return (0);
-	while (i < nb)
+	while (i <= nb / i)
 	{
 		if (nb % i == 0)
 			return (0);
@@ -28,6 +28,8 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
+	if (nb <= 2)
+		return (2);
 	while (ft_is_prime(nb) == 0)
 		nb++;
 	return (nb);

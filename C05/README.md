@@ -54,6 +54,9 @@ Formula for the Fibbonachi sequence is:
 
 $F_n = F_{n-1} + F_{n-2}$
 
+We hardcode that index 0 and 1 stay the same in Fibonacci sequence to save time and correct errors. 
+Also make sure to return -1 if `index` is negative! I did this by making `fib`'s default value -1, since it wouldn't pass the while loop if it's negative.
+
 It's basically the sum of the previous 2 numbers in the sequence, and it always starts with 0 and 1. So we just need to store the 2 last numbers, initial value being the first 2, and then just add them into `fib`, make the first number the second and the second equal the current `fib`, until we reach the end of the index.
 ### ex05: `ft_sqrt`
 
