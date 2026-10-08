@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:06:35 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/08 12:01:12 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/08 17:44:20 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		max;
 	int		btlen;
 	int		i;
- 
+
 	if (ft_atoi_base(nbr, base_from, &dec) == 0)
 		return (NULL);
 	btlen = ft_strlen(base_to);
@@ -105,7 +105,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (ptr);
 }
 
-int main(void)
+/* int main(void)
 {
 	char	*res;
 
@@ -118,4 +118,4 @@ int main(void)
 	ft_putstr(res);
 	free(res);
 	return (0);
-}
+} */
