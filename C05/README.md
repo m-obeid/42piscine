@@ -21,7 +21,7 @@ This is what is called an iterative approach.
 
 Factorial means for example 5! = 1 * 2 * 3 * 4 * 5.
 
-We first check if `nb` is 0, if yes we return 1.
+We first check if `nb` is less than 0, if yes we return 0, and we return 1 if `nb` is 0.
 
 If not, we return our current `nb` * `ft_recursive_factorial` of `nb - 1`
 
@@ -39,7 +39,7 @@ We define these `int`:
 We start with `i` as 0 and `basenum` with `nb`
 If `power` is zero, then return 1. 
 
-While `i`  is less than the `power` - 1 (because we start counting from 0, 0 is the first), we increment `i` we multiply `nb` by `basenum` and store it inside `nb`, and we increment `i`
+While `i` is less than the `power` - 1 (because we start counting from 0, 0 is the first), we increment `i` we multiply `nb` by `basenum` and store it inside `nb`, and we increment `i`
 
 So that would be `nb` * `basenum` for the first iteration, `nb` now equals `nb` squared.
 Next iteration, `nb` becomes `nb` * `basenum` which also equals `basenum` * `basenum` * `basenum`, which is why it's `nb` to the power of 3. And the next iteration, `i` is four and so on.
