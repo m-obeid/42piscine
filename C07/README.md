@@ -47,3 +47,7 @@ Remember that these functions also have functions they depend on so make sure to
 The primary job of `ft_convert_base` now is to validate the `base_to` through `ft_check_base`, convert the `nbr` using `ft_atoi_base` and `base_from` which then validates it and if successful should assign the integer to `dec` and return 1, otherwise returns 0 which in turn makes `ft_convert_base` return `NULL`, then the next step is to calculate the size for `malloc`, then return 0 if memory allocation failed and use `ft_nbr_base_str` to actually start the conversion into the new base using `base_to`.
 
 It really is just a mix of previously written code!
+
+### ex05 `ft_split`
+
+TODO
