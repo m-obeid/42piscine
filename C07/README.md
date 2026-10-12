@@ -50,4 +50,16 @@ It really is just a mix of previously written code!
 
 ### ex05 `ft_split`
 
-TODO
+`ft_split` creates an array of strings from `str` (string) delimited by one of the `char`s in `charset` (also a string).
+
+The first thing as usual for a `malloc` exercise is to calculate the needed size for the allocated memory.
+
+`strs` will be an array of pointers, pointers are just memory addresses, which are all the same size. So we just neeed to specify exactly how many pointers we need to store, essentially the number of words. For that we have `ft_count_words`, which counts the number of words based on them ending with one of the `charset` characters. To check all `charset` characters, I have another helper function `ic` that does exactly just that, if the `char` passed to it was found in `charset` then return 1, otherwise false. `ft_count_words` also accounts for multiple `charset` characters, ignoring them since they aren't words.
+
+Then to actually copy the words to the pointer array `strs`, I made a modified version of `ft_strdup` called `ft_wddup` that checks for the `ic` condition instead of `!= '\0'` for ending the string or in this case, word.
+
+The main function then uses all these functions to allocate the memory for `strs`, then goes through the whole `str`, skips all `charset` characters it encounters, until it hits a word, where it then copies it to the current position in `strs` (which is `strs[j]`), increments `j` to go to the next spot in `strs`, then skips the word in the string, essentially looks for either the end of the string or beginning of the next word.
+
+When the string loop is over we finished all words.
+
+The final string in `strs` should actually be `NULL`, to mark the end of the array, so let's just use the remaining `strs[j]` for that and return `strs`
