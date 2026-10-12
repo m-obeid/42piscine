@@ -54,10 +54,21 @@ Formula for the Fibbonachi sequence is:
 
 $F_n = F_{n-1} + F_{n-2}$
 
-We hardcode that index 0 and 1 stay the same in Fibonacci sequence to save time and correct errors. 
-Also make sure to return -1 if `index` is negative! I did this by making `fib`'s default value -1, since it wouldn't pass the while loop if it's negative.
+We hardcode that index 0 and 1 stay the same in Fibonacci sequence, because 0 is always 0 and 1 is always 1 in Fibonacci sequence.
 
-It's basically the sum of the previous 2 numbers in the sequence, and it always starts with 0 and 1. So we just need to store the 2 last numbers, initial value being the first 2, and then just add them into `fib`, make the first number the second and the second equal the current `fib`, until we reach the end of the index.
+The formula already tells us this has to be recursive, so does the exercise, and it's pretty much an insert.
+
+The way this works is imagine that the first call eg. `ft_fibonacci(5)` is a box with 2 boxes inside. Those boxes are `ft_fibonacci(4)` and `ft_fibonacci(3)` respectively.
+
+Inside those boxes are also smaller boxes `ft_fibonacci(2)` and `ft_fibonacci(1)`. Only the value of `ft_fibonacci(1)` and `ft_fibonacci(0)` are known to be 1 and 0 respectively.
+
+So in the end we end up with a row of 1 and 0 resulting from the tree of opening those boxes, and adding these together results in the value of our initial/largest box.
+
+Here's a visualization I found on Google:
+
+![Visualization](fibonacci.webp)
+
+Because we need to check if the input is invalid and return 0 in that case, we just check if the number is less than 0 which isn't allowed. That's it.
 ### ex05: `ft_sqrt`
 
 Instead of trying to calculate the square root, we can just try to go through all, starting from 0 all the way to 46340. Why that number? Because it's the last squared number that would result in a number that is small enough to fit below `INT_MAX`, go higher and it will overflow.

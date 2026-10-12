@@ -6,32 +6,17 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 12:23:20 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/08 16:52:46 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/12 15:29:06 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_fibonacci(int index)
 {
-	int	n1;
-	int	n2;
-	int	fib;
-
 	if (index < 0)
-		return (-1);
+		return (0);
 	if (index <= 1)
 		return (index);
-	n1 = 0;
-	n2 = 1;
-	fib = -1;
-	index -= 2;
-	while (index >= 0)
-	{
-		fib = n1 + n2;
-		n1 = n2;
-		n2 = fib;
-		index--;
-	}
-	return (fib);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 
 /* int	main(void)
