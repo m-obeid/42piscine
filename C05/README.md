@@ -64,6 +64,8 @@ Inside those boxes are also smaller boxes `ft_fibonacci(2)` and `ft_fibonacci(1)
 
 So in the end we end up with a row of 1 and 0 resulting from the tree of opening those boxes, and adding these together results in the value of our initial/largest box.
 
+We return -1 if the starting number is negative which is not allowed.
+
 Here's a visualization I found on Google:
 
 ![Visualization](fibonacci.webp)
