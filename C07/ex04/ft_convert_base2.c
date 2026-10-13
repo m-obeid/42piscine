@@ -6,11 +6,9 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:06:35 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/08 11:27:51 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/13 14:53:25 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 // Some helper functions live in here, as Norme limits prevent me from having 
 // that many functions in one file

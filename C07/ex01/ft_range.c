@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 17:28:00 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/07 18:04:57 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/13 14:52:05 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (NULL);
 	range = malloc((max - min) * sizeof(int));
+	if (range == NULL)
+		return (NULL);
 	i = 0;
 	while (i + min < max)
 	{

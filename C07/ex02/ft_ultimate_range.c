@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 17:28:00 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/07 18:08:45 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/13 14:51:50 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	}
 	*range = malloc((max - min) * sizeof(int));
+	if (*range == NULL)
+		return (NULL);
 	i = 0;
 	while (i + min < max)
 	{
@@ -31,7 +33,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 	return (max - min);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int	*range;
 	int	size;
@@ -48,4 +50,4 @@ int	main(void)
 	}
 	free(range);
 	return (0);
-}
+} */
