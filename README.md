@@ -3,23 +3,24 @@ Resources I wrote in my journey through the Piscine at 42 Wolfsburg
 
 WIP!!
 
-Note Shell01 doesn't pass I'm not going to bother with that for now
+Note Shell01 doesn't pass I'm not going to bother with that, cuz basically nobody did Shell01.
 
 ## Table of Contents
 
 
-| Project                | Status                | Grade   |
-| ---------------------- | --------------------- | ------- |
-| **[Shell00](Shell00)** | complete              | 100/100 |
-| **[Shell01](Shell01)** | failed                | 0/100   |
-| **[C00](C00)**         | complete              | 100/100 |
-| **[C01](C01)**         | complete              | 100/100 |
-| **[C02](C02)**         | complete              | 55/100  |
-| **[C03](C03)**         | complete              | 50/100  |
-| **[C04](C04)**         | complete              | 100/100 |
-| **[C05](C05)**         | waiting on evaluation | 30/100  |
-| **[C06](C06)**         | complete              | 100/100 |
-| **[C07](C07)**         | waiting on evaluation | ?/100   |
+| Project                | Status                 | Grade   |
+| ---------------------- | ---------------------- | ------- |
+| **[Shell00](Shell00)** | complete               | 100/100 |
+| **[Shell01](Shell01)** | failed                 | 0/100   |
+| **[C00](C00)**         | complete               | 100/100 |
+| **[C01](C01)**         | complete               | 100/100 |
+| **[C02](C02)**         | complete               | 55/100  |
+| **[C03](C03)**         | complete               | 50/100  |
+| **[C04](C04)**         | complete               | 100/100 |
+| **[C05](C05)**         | complete               | 90/100  |
+| **[C06](C06)**         | complete               | 100/100 |
+| **[C07](C07)**         | complete               | 60/100  |
+| **[C08](C08)**         | waiting for evaluation | ?/100   |
 ## Exam and Rush results
 
 Exam solutions are not included here.
