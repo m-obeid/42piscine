@@ -6,11 +6,12 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:09:37 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/14 13:26:12 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/14 18:17:21 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft_stock_str.h"
 
 void	ft_putstr(char *str)
 {

@@ -6,11 +6,12 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 18:04:24 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/13 19:09:44 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/14 18:17:04 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_stock_str.h"
 
 int	ft_strlen(char *str)
 {
