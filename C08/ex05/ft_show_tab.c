@@ -6,7 +6,7 @@
 /*   By: mobeid <mobeid@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:09:37 by mobeid            #+#    #+#             */
-/*   Updated: 2026/10/13 19:09:41 by mobeid           ###   ########.fr       */
+/*   Updated: 2026/10/14 13:26:12 by mobeid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		write(1, str, 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 	write(1, "\n", 1);
